@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>  recpiet details page</title>
+</head>
+<body>
+
+    
+
+   
+    <label for="categoryFilter">   list:</label>
+    <select id="categoryFilter" onchange="filterRecipes()">
+        <option value="all">all</option>
+        <option value="desserts">desserts</option>
+        <option value="vegan">vegan</option>
+        <option value="main"> main</option>
+    </select>
+
+    <hr>
+
+    <div id="recipeList">
+        
+        <div class="recipe" data-category="desserts">
+            <h3>کیک شکلاتی</h3>
+            <img src="https://example.com/chocolate-cake.jpg" alt="کیک شکلاتی" width="200"><br>
+            <p>کیک خوشمزه با طعم شکلاتی غلیظ.</p>
+            <a href="recipe details page.html">مشاهده دستور کامل</a>
+        </div>
+        <hr>
+
+     
+        <div class="recipe" data-category="vegan">
+            <h3>خوراک سبزیجات</h3>
+            <img src="https://example.com/veggie.jpg" alt="خوراک سبزیجات" width="200"><br>
+            <p>خوراک گیاهی با انواع سبزیجات تازه.</p>
+            <a href="recipe-detail.html?id=2">مشاهده دستور کامل</a>
+        </div>
+        <hr>
+
+        
+        <div class="recipe" data-category="main">
+            <h3>زرشک پلو با مرغ</h3>
+            <img src="https://example.com/barberry-rice.jpg" alt="زرشک پلو" width="200"><br>
+            <p>غذای ایرانی خوشمزه با برنج و مرغ زعفرانی.</p>
+            <a href="recipe-detail.html?id=3">مشاهده دستور کامل</a>
+        </div>
+        <hr>
+    </div>
+
+  
+    <script>
+        function filterRecipes() {
+            var selected = document.getElementById("categoryFilter").value;
+            var recipes = document.getElementsByClassName("recipe");
+
+            for (var i = 0; i < recipes.length; i++) {
+                var category = recipes[i].getAttribute("data-category");
+                if (selected === "all" || category === selected) {
+                    recipes[i].style.display = "block";
+                } else {
+                    recipes[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
